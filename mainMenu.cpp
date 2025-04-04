@@ -1,6 +1,6 @@
-// mainMenu.cpp
-#include <iostream>
+#include <cstdio>
 #include <windows.h>
+#include <conio.h> // Для _getch()
 
 // Функция для отображения главного меню
 void ShowMainMenu() {
@@ -10,31 +10,35 @@ void ShowMainMenu() {
     while (true) {
         system("cls"); // Очищаем экран
         printf("\n\n\n\n\n\n\n\t\t\t    PainT (ver. 0.1)\n\n\n\n\n\n\n");
-        std::cout << "|== Главное меню ======================================================|\n";
-        std::cout << "1. Рисовать\n";
-        std::cout << "2. Настройки\n";
-        std::cout << "3. Выйти\n";
-        if (!badChoice) std::cout << "\n\n\n";
-        else printf("\n\nТакого выбора нет\n");
+        printf("|== Главное меню ======================================================|\n");
+        printf("1. Рисовать\n");
+        printf("2. Настройки\n");
+        printf("3. Выйти\n");
+        if (!badChoice) 
+            printf("\n\n\n");
+        else 
+            printf("\n\nТакого выбора нет\n");
         printf(">_:");
-        std::cin >> choice;
+        
+        // Используем _getch() для получения ввода сразу при нажатии клавиши
+        choice = _getch() - '0'; // Преобразуем символ в цифру
 
         switch (choice) {
             case 1:
                 badChoice = false;
-                std::cout << "Вы выбрали 'Рисовать'.\n";
+                printf("Вы выбрали 'Рисовать'.\n");
                 // Здесь можно добавить логику рисования
                 system("pause");
                 break;
             case 2:
                 badChoice = false;
-                std::cout << "Вы выбрали 'Настройки'.\n";
+                printf("Вы выбрали 'Настройки'.\n");
                 // Здесь можно добавить логику настроек
                 system("pause");
                 break;
             case 3:
                 badChoice = false;
-                std::cout << "Выход из программы...\n";
+                printf("Выход из программы...\n");
                 return; // Выход из программы
             default:
                 badChoice = true;
