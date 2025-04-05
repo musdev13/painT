@@ -8,7 +8,6 @@
 // Функция для отображения главного меню
 void ShowMainMenu() {
     int choice = 0;
-    bool badChoice = false;
     bool running = true;
 
     while (running) {
@@ -18,10 +17,7 @@ void ShowMainMenu() {
         printf("1. Рисовать\n");
         printf("2. Настройки\n");
         printf("3. Выйти\n");
-        if (!badChoice) 
-            printf("\n\n\n");
-        else 
-            printf("\n\nТакого выбора нет\n");
+        printf("\n\n\n");
         printf(">_:");
         
         // Используем _getch() для получения ввода сразу при нажатии клавиши
@@ -29,22 +25,18 @@ void ShowMainMenu() {
 
         switch (choice) {
             case 1:
-                running = false;
                 gameMenu();
                 return;
                 break;
             case 2:
-                badChoice = false;
                 printf("Вы выбрали 'Настройки'.\n");
                 // Здесь можно добавить логику настроек
                 system("pause");
                 break;
             case 3:
-                badChoice = false;
                 printf("Выход из программы...\n");
                 return; // Выход из программы
             default:
-                badChoice = true;
                 break;
         }
     }
