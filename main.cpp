@@ -1,9 +1,7 @@
-// main.cpp
 #include <iostream>
 #include <windows.h>
 #include "globals.h"
 
-// Функция для изменения размера консоли
 void ResizeConsole() {
     HWND hwnd = GetConsoleWindow();
     Sleep(10);
@@ -19,10 +17,9 @@ void ResizeConsole() {
 Artist mus(1,0);
 
 int main() {
-    ResizeConsole();  // Изменяем размер консоли
+    ResizeConsole();
     system("title painT");
 
-    // Запускаем главное меню
     ShowMainMenu();
 
     return 0;
