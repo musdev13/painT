@@ -32,7 +32,7 @@ void gameMenu(){
         switch (choice)
         {
         case 3:
-            // tgameMenuRend.detach();
+            tgameMenuRend.detach();
             exit(0);
             break;
         

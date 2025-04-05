@@ -3,7 +3,16 @@
 #include <windows.h>
 #include <conio.h> // Для _getch()
 #include "globals.h"
+#include <thread>
+#include <chrono>
 
+void updateInsp(){
+    while (true)
+    {
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+        mus.insp++;
+    }
+}
 
 // Функция для отображения главного меню
 void ShowMainMenu() {
@@ -25,9 +34,12 @@ void ShowMainMenu() {
 
         switch (choice) {
             case 1:
-                gameMenu();
-                return;
-                break;
+                {
+                    std::thread tupdateInsp(updateInsp);
+                    gameMenu();
+                    return;
+                    break;
+                }
             case 2:
                 printf("Вы выбрали 'Настройки'.\n");
                 // Здесь можно добавить логику настроек
@@ -35,7 +47,7 @@ void ShowMainMenu() {
                 break;
             case 3:
                 printf("Выход из программы...\n");
-                return; // Выход из программы
+                exit(1); // Выход из программы
             default:
                 break;
         }
