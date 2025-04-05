@@ -7,8 +7,8 @@
 
 #include "globals.h"
 
-void gameMenuRend(bool* process, bool* wCount){
-    while (true){
+void gameMenuRend(bool* process, bool* wCount, bool* running){
+    while (*running){
         system("cls");
         printf("Вдохн.: %d  |  Деньг.: %d\n\n", mus.insp, mus.money);
         printf("|== Статус ============================================================|");
@@ -35,7 +35,7 @@ void gameMenu(){
     bool process = false;
     bool wCount = false;
     int inspCountToUse;
-    std::thread tgameMenuRend(gameMenuRend, &process, &wCount);
+    std::thread tgameMenuRend(gameMenuRend, &process, &wCount, &running);
     while (running)
     {
         choice = _getch()-'0';
@@ -59,6 +59,13 @@ void gameMenu(){
                     mus.money += inspCountToUse*5;
                 }
             }
+            break;
+        
+        case 2:
+            running = false;
+            tgameMenuRend.detach();
+            shopMenu();
+            return;
             break;
         
         default:

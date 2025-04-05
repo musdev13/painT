@@ -6,5 +6,6 @@
 extern Artist mus;
 extern void ShowMainMenu();
 extern void gameMenu();
+extern void shopMenu();
 
 #endif
