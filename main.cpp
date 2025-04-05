@@ -1,3 +1,4 @@
+// main.cpp
 #include <iostream>
 #include <windows.h>
 
@@ -19,6 +20,7 @@ void ResizeConsole() {
 
 int main() {
     ResizeConsole();  // Изменяем размер консоли
+    system("title painT");
 
     // Запускаем главное меню
     ShowMainMenu();
