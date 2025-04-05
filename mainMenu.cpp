@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <conio.h> // Для _getch()
 
+
 // Функция для отображения главного меню
 void ShowMainMenu() {
     int choice = 0;
