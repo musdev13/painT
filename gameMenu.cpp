@@ -10,7 +10,14 @@
 void gameMenuRend(bool running){
     while (running){
         system("cls");
-        printf("Game menu %d", mus.insp);
+        printf("Вдохн.: %d  |  Деньг.: %d\n\n", mus.insp, mus.money);
+        printf("|== Статус ============================================================|");
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        if (mus.insp > 0) printf("1. Рисовать\n");
+        else printf("1. Рисовать (не хватает вдохн.)\n");
+        printf("2. Магазин\n");
+        printf("3. Выход\n");
+        printf("\n>_: ");
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }
