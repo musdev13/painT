@@ -1,9 +1,7 @@
 // main.cpp
 #include <iostream>
 #include <windows.h>
-
-// Подключаем файл с главным меню
-extern void ShowMainMenu();
+#include "globals.h"
 
 // Функция для изменения размера консоли
 void ResizeConsole() {
@@ -17,6 +15,8 @@ void ResizeConsole() {
         SetWindowPos(owner, nullptr, 0, 0, 700, 500, SWP_NOZORDER | SWP_NOMOVE);
     }
 }
+
+Artist mus(1,0);
 
 int main() {
     ResizeConsole();  // Изменяем размер консоли

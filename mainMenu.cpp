@@ -2,14 +2,16 @@
 #include <cstdio>
 #include <windows.h>
 #include <conio.h> // Для _getch()
+#include "globals.h"
 
 
 // Функция для отображения главного меню
 void ShowMainMenu() {
     int choice = 0;
     bool badChoice = false;
+    bool running = true;
 
-    while (true) {
+    while (running) {
         system("cls"); // Очищаем экран
         printf("\n\n\n\n\n\n\n\t\t\t    PainT (ver. 0.1)\n\n\n\n\n\n\n");
         printf("|== Главное меню ======================================================|\n");
@@ -27,10 +29,9 @@ void ShowMainMenu() {
 
         switch (choice) {
             case 1:
-                badChoice = false;
-                printf("Вы выбрали 'Рисовать'.\n");
-                // Здесь можно добавить логику рисования
-                system("pause");
+                running = false;
+                gameMenu();
+                return;
                 break;
             case 2:
                 badChoice = false;
