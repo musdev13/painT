@@ -26,7 +26,7 @@ void shopMenu(){
         {
         case 3:
             running = false;
-            tshopMenuRend.join();
+            tshopMenuRend.detach();
             gameMenu();
             return;
             break;

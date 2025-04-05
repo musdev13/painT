@@ -56,7 +56,7 @@ void gameMenu(){
                     process = true;
                     std::thread tpaintingProcess(paintingProcess, &process);
                     tpaintingProcess.join();
-                    mus.money += inspCountToUse*5;
+                    mus.money += (inspCountToUse*5)+inspCountToUse;
                 }
             }
             break;
