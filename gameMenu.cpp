@@ -59,6 +59,7 @@ void gameMenu(){
                     mus.money += inspCountToUse*5;
                 }
             }
+            break;
         
         default:
             break;
