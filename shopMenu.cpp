@@ -10,7 +10,13 @@
 void shopMenuRend(bool* running){
     while (*running){
         system("cls");
-        printf("Shop Menu\n");
+        printf("Вдохн.: %d  |  Деньг.: %d\n\n", mus.insp, mus.money);
+        printf("|== Магазин ===========================================================|");
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        printf("1. \n");
+        printf("2. \n");
+        printf("3. Назад\n\n");
+        printf(">_: ");
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }

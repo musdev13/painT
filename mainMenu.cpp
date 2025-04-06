@@ -25,7 +25,7 @@ void ShowMainMenu() {
         printf("2. Настройки\n");
         printf("3. Выйти\n");
         printf("\n\n\n");
-        printf(">_:");
+        printf(">_: ");
         
         choice = _getch() - '0';
 
