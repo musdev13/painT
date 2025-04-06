@@ -12,7 +12,7 @@ void gameMenuRend(bool* process, bool* wCount, bool* running){
         if (!*wCount){
         system("cls");
         printf("Вдохн.: %d  |  Деньг.: %d\n\n", mus.insp, mus.money);
-        printf("|== Статус ============================================================|");
+        printf("|== Стат. =============================================================|");
         printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         if (mus.insp > 0 and !*process) {
             printf("1. Рисовать\n");
