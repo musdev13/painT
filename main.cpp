@@ -15,6 +15,9 @@ void ResizeConsole() {
 }
 
 Artist mus(1,0);
+Upgrades upgrades(0, {false, false}); 
+
+
 
 int main() {
     ResizeConsole();
