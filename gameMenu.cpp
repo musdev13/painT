@@ -9,18 +9,25 @@
 
 void gameMenuRend(bool* process, bool* wCount, bool* running){
     while (*running){
+        if (!*wCount){
         system("cls");
         printf("Вдохн.: %d  |  Деньг.: %d\n\n", mus.insp, mus.money);
         printf("|== Статус ============================================================|");
         printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        if (mus.insp > 0 and !*process) printf("1. Рисовать\n");
-        else if (*process) printf("1. Рисовать (в процессе)\n");
-        else printf("1. Рисовать (не хватает вдохн.)\n");
-        printf("2. Магазин\n");
-        printf("3. Выход\n");
-        if (!*wCount) printf("\n>_: ");
-        else printf("Введите кол. вдохн. для исп.\n>_: ");
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        if (mus.insp > 0 and !*process) {
+            printf("1. Рисовать\n");
+            printf("2. Магазин\n");
+            printf("3. Выход\n");
+            printf("\n>_: ");
+        }
+        else if (*process) printf("В процессе\n\n\n\n");
+        else {
+            printf("1. Рисовать (не хватает вдохн.)\n");
+            printf("2. Магазин\n");
+            printf("3. Выход\n");
+            printf("\n>_: ");
+        }
+        std::this_thread::sleep_for(std::chrono::seconds(1));}
     }
 }
 
@@ -49,7 +56,9 @@ void gameMenu(){
         case 1:
             if (mus.insp > 0 and !process){
                 wCount = true;
-                std::cin.ignore() >> inspCountToUse;
+                system("cls");
+                printf("Введите кол. вдохн. для исп.\tИм. %d\n>_: ",mus.insp);
+                std::cin >> inspCountToUse;
                 if (inspCountToUse <= mus.insp){
                     wCount = false;
                     mus.insp -= inspCountToUse;
@@ -57,6 +66,9 @@ void gameMenu(){
                     std::thread tpaintingProcess(paintingProcess, &process);
                     tpaintingProcess.join();
                     mus.money += (inspCountToUse*5)+inspCountToUse;
+                }
+                else{
+                    wCount = false;
                 }
             }
             break;
